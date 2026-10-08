@@ -422,10 +422,25 @@ export function useHomeViewModel() {
   const handleContactSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise((r) => setTimeout(r, 700));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setForm(EMPTY_FORM);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
+      });
+      if (response.ok) {
+        setIsSubmitted(true);
+        setForm(EMPTY_FORM);
+      } else {
+        console.error('Failed to submit form');
+        alert(language === "AR" ? "حدث خطأ" : "Une erreur est survenue.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert(language === "AR" ? "حدث خطأ" : "Une erreur est survenue.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const resetContactForm = () => setIsSubmitted(false);
