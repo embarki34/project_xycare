@@ -1,6 +1,6 @@
 import { Box, Flex, HStack, Icon, SimpleGrid, Stack, Text, Link as ChakraLink } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 import type { HomeViewModel } from "../../viewmodels/useHomeViewModel";
 import { PageContainer } from "../common/primitives";
 import { Logo } from "./Logo";
@@ -9,7 +9,6 @@ const SOCIAL_ICONS = {
   LinkedIn: FaLinkedinIn,
   Instagram: FaInstagram,
   Facebook: FaFacebookF,
-  YouTube: FaYoutube,
 } as const;
 
 type FooterProps = Pick<
@@ -39,6 +38,8 @@ export function Footer({ navLinks, socials, contactChannels }: FooterProps) {
                 <ChakraLink
                   key={s.label}
                   href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={s.label}
                   boxSize="38px"
                   display="inline-flex"
@@ -119,6 +120,8 @@ export function Footer({ navLinks, socials, contactChannels }: FooterProps) {
               <ChakraLink
                 key={c.label}
                 href={c.href}
+                target={c.href.startsWith("http") ? "_blank" : undefined}
+                rel="noopener noreferrer"
                 fontSize="sm"
                 color="brand.300"
                 transition="color 0.15s"

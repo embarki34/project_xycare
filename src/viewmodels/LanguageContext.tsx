@@ -138,6 +138,35 @@ export interface TranslationDictionary {
     description: string;
     items: { title: string; desc: string }[];
   };
+  extras: {
+    contactCta: string;
+    visitSite: string;
+    banners: {
+      ariaLabel: string;
+      formatechBadge: string;
+      formatechTitle: string;
+      formatechSubtitle: string;
+      formatechDates: string;
+      formatechPlace: string;
+      formatechCta: string;
+      roseBadge: string;
+      roseTitle: string;
+      roseSubtitle: string;
+      roseCta: string;
+    };
+    planning: {
+      eyebrow: string;
+      title: string;
+      description: string;
+      videoTitle: string;
+    };
+    location: {
+      eyebrow: string;
+      title: string;
+      description: string;
+      openMaps: string;
+    };
+  };
 }
 
 export const translations: Record<Language, TranslationDictionary> = {
@@ -148,7 +177,7 @@ export const translations: Record<Language, TranslationDictionary> = {
       academy: "Academy",
       downloadCatalogue: "Télécharger le catalogue",
       downloadPdf: "Télécharger le PDF",
-      allFormations: "Toutes les Formations",
+      allFormations: "Nos Formations",
       discoverFormations: "Découvrir nos formations",
       eventTag: "Retrouvez-nous",
       closeMenu: "Fermer le menu",
@@ -173,9 +202,9 @@ export const translations: Record<Language, TranslationDictionary> = {
     },
     nav: {
       home: "Accueil",
-      allFormations: "Toutes les Formations",
+      allFormations: "Nos Formations",
       about: "À propos",
-      whyUs: "Pourquoi nous",
+      whyUs: "Nos atouts",
       contact: "Contact",
       navigation: "Navigation",
       contactAndAccess: "Contact & Accès",
@@ -217,7 +246,7 @@ export const translations: Record<Language, TranslationDictionary> = {
       title: "Cinq domaines pour faire progresser vos équipes",
       description:
         "Des programmes structurés pour répondre aux enjeux concrets de votre métier.",
-      seeAllTileTitle: "Toutes les formations",
+      seeAllTileTitle: "Nos Formations",
       seeAllTileDesc: "Découvrir la galerie complète",
       items: [
         {
@@ -243,7 +272,7 @@ export const translations: Record<Language, TranslationDictionary> = {
       ],
     },
     why: {
-      eyebrow: "Pourquoi Condor Academy",
+      eyebrow: "Nos atouts",
       title: "Une formation qui part du terrain",
       description:
         "Nous transmettons ce qui fonctionne réellement en entreprise — pas seulement la théorie.",
@@ -330,6 +359,39 @@ export const translations: Record<Language, TranslationDictionary> = {
         Avancé: "Avancé",
       },
     },
+    extras: {
+      contactCta: "Contact & Rendez-vous",
+      visitSite: "Visiter le site",
+      banners: {
+        ariaLabel: "Actualités et événements",
+        formatechBadge: "Événement",
+        formatechTitle: "Condor Academy au FormaTech Expo 2026",
+        formatechSubtitle:
+          "Retrouvez notre équipe sur notre stand pour découvrir nos programmes et prendre rendez-vous.",
+        formatechDates: "12–15 octobre 2026",
+        formatechPlace: "Pavillon A, SAFEX (Palais des Expositions), Alger",
+        formatechCta: "Prendre rendez-vous",
+        roseBadge: "Sensibilisation",
+        roseTitle: "Octobre Rose : ensemble, sensibilisons",
+        roseSubtitle:
+          "Condor Academy s'engage dans la lutte contre le cancer du sein. Le dépistage précoce sauve des vies.",
+        roseCta: "Nous contacter",
+      },
+      planning: {
+        eyebrow: "Planning mensuel",
+        title: "Le planning des formations du mois",
+        description:
+          "Découvrez en vidéo les sessions programmées ce mois-ci, les dates et les domaines concernés.",
+        videoTitle: "Présentation du planning mensuel des formations",
+      },
+      location: {
+        eyebrow: "Nous trouver",
+        title: "Où nous situer",
+        description:
+          "Condor Academy vous accueille à Bordj Bou Arréridj, au sein de la zone industrielle.",
+        openMaps: "Ouvrir dans Google Maps",
+      },
+    },
     companies: {
       eyebrow: "Nos Partenaires & Filiales",
       title: "L'Écosystème du Groupe Condor",
@@ -379,7 +441,7 @@ export const translations: Record<Language, TranslationDictionary> = {
       academy: "أكاديمي",
       downloadCatalogue: "تحميل الدليل التكويني",
       downloadPdf: "تحميل ملف PDF",
-      allFormations: "جميع الدورات التدريبية",
+      allFormations: "تكويناتنا",
       discoverFormations: "اكتشف دوراتنا التكوينية",
       eventTag: "تفضلوا بزيارة جناحنا",
       closeMenu: "إغلاق القائمة",
@@ -404,9 +466,9 @@ export const translations: Record<Language, TranslationDictionary> = {
     },
     nav: {
       home: "الرئيسية",
-      allFormations: "جميع الدورات",
+      allFormations: "تكويناتنا",
       about: "من نحن",
-      whyUs: "لماذا تختارنا",
+      whyUs: "نقاط قوتنا",
       contact: "اتصل بنا",
       navigation: "تصفح الموقع",
       contactAndAccess: "التواصل والعنوان",
@@ -446,7 +508,7 @@ export const translations: Record<Language, TranslationDictionary> = {
       title: "خمسة مسارات استراتيجية للارتقاء بفرق عملكم",
       description:
         "برامج تدريبية متكاملة تواكب أحدث التطورات وتجيب على التحديات الواقعية.",
-      seeAllTileTitle: "جميع الدورات التكوينية",
+      seeAllTileTitle: "تكويناتنا",
       seeAllTileDesc: "تصفح الدليل الكامل للدورات",
       items: [
         {
@@ -472,7 +534,7 @@ export const translations: Record<Language, TranslationDictionary> = {
       ],
     },
     why: {
-      eyebrow: "لماذا كوندور أكاديمي",
+      eyebrow: "نقاط قوتنا",
       title: "تكوين ينبع من الواقع العملي والتجربة الميدانية",
       description:
         "نحن ننقل لكم الآليات والحلول التي أثبتت نجاحها الفعلي في كبرى المؤسسات الصناعية.",
@@ -558,6 +620,39 @@ export const translations: Record<Language, TranslationDictionary> = {
         Avancé: "متقدم",
       },
     },
+    extras: {
+      contactCta: "اتصل بنا وحدد موعداً",
+      visitSite: "زيارة الموقع",
+      banners: {
+        ariaLabel: "الأخبار والفعاليات",
+        formatechBadge: "فعالية",
+        formatechTitle: "كوندور أكاديمي في معرض فورماتيك إكسبو 2026",
+        formatechSubtitle:
+          "تفضلوا بزيارة جناحنا للتعرف على برامجنا التكوينية وحجز موعد مع فريقنا.",
+        formatechDates: "12–15 أكتوبر 2026",
+        formatechPlace: "الجناح A، قصر المعارض (صافكس)، الجزائر العاصمة",
+        formatechCta: "حجز موعد",
+        roseBadge: "حملة تحسيسية",
+        roseTitle: "أكتوبر الوردي: معاً من أجل التوعية",
+        roseSubtitle:
+          "تنخرط كوندور أكاديمي في حملة مكافحة سرطان الثدي. الكشف المبكر ينقذ الأرواح.",
+        roseCta: "تواصل معنا",
+      },
+      planning: {
+        eyebrow: "البرنامج الشهري",
+        title: "برنامج الدورات التكوينية لهذا الشهر",
+        description:
+          "اكتشفوا في فيديو قصير الدورات المبرمجة هذا الشهر، مواعيدها ومجالاتها.",
+        videoTitle: "عرض البرنامج الشهري للدورات التكوينية",
+      },
+      location: {
+        eyebrow: "موقعنا",
+        title: "أين تجدوننا",
+        description:
+          "تستقبلكم كوندور أكاديمي ببرج بوعريريج، داخل المنطقة الصناعية.",
+        openMaps: "فتح في خرائط جوجل",
+      },
+    },
     companies: {
       eyebrow: "شركاؤنا وفروعنا",
       title: "منظومة مجمع كوندور",
@@ -607,7 +702,7 @@ export const translations: Record<Language, TranslationDictionary> = {
       academy: "Academy",
       downloadCatalogue: "Download Catalogue",
       downloadPdf: "Download PDF",
-      allFormations: "All Training Courses",
+      allFormations: "Our Training Programs",
       discoverFormations: "Explore Our Courses",
       eventTag: "Meet us at",
       closeMenu: "Close menu",
@@ -632,9 +727,9 @@ export const translations: Record<Language, TranslationDictionary> = {
     },
     nav: {
       home: "Home",
-      allFormations: "All Courses",
+      allFormations: "Our Training Programs",
       about: "About",
-      whyUs: "Why Choose Us",
+      whyUs: "Our Strengths",
       contact: "Contact",
       navigation: "Navigation",
       contactAndAccess: "Contact & Location",
@@ -676,7 +771,7 @@ export const translations: Record<Language, TranslationDictionary> = {
       title: "Five core domains engineered to elevate your workforce",
       description:
         "Structured learning paths addressing real-world operational challenges.",
-      seeAllTileTitle: "All Courses Directory",
+      seeAllTileTitle: "Our Training Programs",
       seeAllTileDesc: "Browse complete catalog",
       items: [
         {
@@ -702,7 +797,7 @@ export const translations: Record<Language, TranslationDictionary> = {
       ],
     },
     why: {
-      eyebrow: "Why Condor Academy",
+      eyebrow: "Our Strengths",
       title: "Training rooted in real enterprise experience",
       description:
         "We share methodologies proven on the front lines of manufacturing and business — not just theoretical textbooks.",
@@ -787,6 +882,39 @@ export const translations: Record<Language, TranslationDictionary> = {
         Débutant: "Beginner",
         Intermédiaire: "Intermediate",
         Avancé: "Advanced",
+      },
+    },
+    extras: {
+      contactCta: "Contact & Appointment",
+      visitSite: "Visit website",
+      banners: {
+        ariaLabel: "News and events",
+        formatechBadge: "Event",
+        formatechTitle: "Condor Academy at FormaTech Expo 2026",
+        formatechSubtitle:
+          "Meet our team at our stand to discover our programs and book an appointment.",
+        formatechDates: "October 12–15, 2026",
+        formatechPlace: "Pavilion A, SAFEX (Exhibition Palace), Algiers",
+        formatechCta: "Book an appointment",
+        roseBadge: "Awareness",
+        roseTitle: "Pink October: raising awareness together",
+        roseSubtitle:
+          "Condor Academy supports the fight against breast cancer. Early screening saves lives.",
+        roseCta: "Contact us",
+      },
+      planning: {
+        eyebrow: "Monthly schedule",
+        title: "This month's training schedule",
+        description:
+          "Watch a short video of the sessions planned this month, with dates and topics.",
+        videoTitle: "Monthly training schedule presentation",
+      },
+      location: {
+        eyebrow: "Find us",
+        title: "Where to find us",
+        description:
+          "Condor Academy welcomes you in Bordj Bou Arréridj, inside the industrial zone.",
+        openMaps: "Open in Google Maps",
       },
     },
     companies: {

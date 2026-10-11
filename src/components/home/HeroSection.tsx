@@ -113,7 +113,7 @@ export function HeroSection({ handleDownloadCatalogue, t, dir }: HeroProps) {
         }}
       />
       <PageContainer>
-        <Grid templateColumns={{ base: "1fr", lg: "1.3fr 1fr" }} gap={12} alignItems="center">
+        <Grid templateColumns={{ base: "1fr", lg: "1.5fr 1fr" }} gap={12} alignItems="center">
           <Stack gap={7} className="reveal">
             <Link href="#catalogue" alignSelf="start" display="inline-flex" alignItems="center" gap={2} pl={isRTL ? 3 : 1} pr={isRTL ? 1 : 3} py={1} rounded="full" bg="white" borderWidth="1px" borderColor="ink.200" shadow="soft" fontSize="13px" color="ink.600" _hover={{ textDecoration: "none", borderColor: "ink.300" }}>
               <Box as="span" px={2} py="2px" rounded="full" bg="brand.50" color="brand.700" fontWeight="600" fontSize="12px">Nouveau</Box>
@@ -125,7 +125,12 @@ export function HeroSection({ handleDownloadCatalogue, t, dir }: HeroProps) {
             <Heading as="h1" fontSize={{ base: "38px", md: "50px", lg: "54px" }} lineHeight="1.18" letterSpacing="-0.03em" fontWeight="800" color="ink.900">
               <Box as="span" display="block">{t.hero.titleStart}</Box>
               <Box as="span" display="inline-block" position="relative" overflow="hidden" verticalAlign="bottom" w="full" className="ios-picker-perspective" py="2px">
-                <Box as="span" visibility="hidden" display="block" lineHeight="1.18">{phrases[currentIndex]}</Box>
+                {/* All phrases share one grid cell, so the box is always as tall as the longest one and never jumps. */}
+                <Box as="span" aria-hidden="true" visibility="hidden" display="grid" lineHeight="1.18">
+                  {phrases.map((p) => (
+                    <Box key={p} as="span" gridArea="1 / 1" whiteSpace="normal">{p}</Box>
+                  ))}
+                </Box>
                 {isAnimating && prevIndex !== null && (
                   <Box as="span" position="absolute" insetX="0" top="0" color="brand.600" whiteSpace="normal" className="ios-wheel-exiting" lineHeight="1.18">{phrases[prevIndex]}</Box>
                 )}

@@ -1,7 +1,7 @@
-import { Box, Button, Flex, HStack, Icon, IconButton, Stack, Text, Link as ChakraLink } from "@chakra-ui/react";
+import { Box, Button, Container, Flex, HStack, Icon, IconButton, Stack, Text, Link as ChakraLink } from "@chakra-ui/react";
 import { useEffect, useState, useRef } from "react";
 import { Link as RouterLink, useLocation } from "react-router-dom";
-import { LuArrowRight, LuDownload, LuMenu, LuX } from "react-icons/lu";
+import { LuArrowRight, LuCalendarCheck, LuDownload, LuMenu, LuX } from "react-icons/lu";
 import type { HomeViewModel } from "../../viewmodels/useHomeViewModel";
 import { PageContainer } from "../common/primitives";
 import { Logo } from "./Logo";
@@ -18,7 +18,8 @@ export function Header({
   setLanguage,
   navLinks,
   handleDownloadCatalogue,
-}: HeaderProps) {
+  contactLabel,
+}: HeaderProps & { contactLabel: string }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -117,8 +118,8 @@ export function Header({
         w="0%"
         zIndex={1}
       />
-      <PageContainer>
-        <Flex h="70px" align="center" justify="space-between" gap={6}>
+      <Container maxW="1480px" px={{ base: 5, md: 8, xl: 12 }}>
+        <Flex h="70px" align="center" justify="space-between" gap={{ base: 4, xl: 8 }}>
           <Logo />
 
           <HStack
@@ -192,6 +193,24 @@ export function Header({
 
           <HStack gap={3}>
             <LanguageSwitch language={language} setLanguage={setLanguage} />
+            <Button
+              id="header-contact-btn"
+              asChild
+              display={{ base: "none", xl: "inline-flex" }}
+              size="sm"
+              h="38px"
+              px={4}
+              rounded="xl"
+              variant="outline"
+              borderColor="ink.300"
+              color="ink.800"
+              fontWeight="600"
+              _hover={{ bg: "ink.50" }}
+            >
+              <a href="/#contact" onClick={() => handleLinkClick("/#contact")}>
+                <LuCalendarCheck /> {contactLabel}
+              </a>
+            </Button>
             <Magnetic>
               <Button
                 id="header-catalogue-btn"
@@ -221,7 +240,7 @@ export function Header({
             </IconButton>
           </HStack>
         </Flex>
-      </PageContainer>
+      </Container>
 
       {menuOpen && (
         <Box

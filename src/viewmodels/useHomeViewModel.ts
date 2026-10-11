@@ -9,7 +9,6 @@ import {
   LuGraduationCap,
   LuMail,
   LuMapPin,
-  LuMessageCircle,
   LuMonitorSmartphone,
   LuPhone,
   LuSprout,
@@ -23,6 +22,7 @@ import formationManagement from "../assets/formation-management.jpg";
 import whyMentoring from "../assets/why-mentoring.jpg";
 import heroTraining from "../assets/hero-training.jpg";
 import { useLanguage } from "./LanguageContext";
+import { CATALOGUE_PDF_URL } from "../config/site";
 
 export interface Feature {
   icon: IconType;
@@ -353,17 +353,17 @@ export const ALL_COURSES: Course[] = [
 ];
 
 const CONTACT_CHANNELS: ContactChannel[] = [
-  { icon: LuPhone, label: "Téléphone", value: "+213 (0) 35 00 00 00", href: "tel:+213350000000" },
-  { icon: LuMail, label: "Email", value: "academy@condor.dz", href: "mailto:academy@condor.dz" },
-  { icon: LuMessageCircle, label: "WhatsApp", value: "Écrivez-nous", href: "https://wa.me/213350000000" },
-  { icon: LuMapPin, label: "Adresse", value: "Bordj Bou Arréridj, Algérie", href: "https://maps.google.com/?q=Condor+Electronics+Bordj+Bou+Arreridj" },
+  { icon: LuPhone, label: "Téléphone", value: "+213 (0)560 65 44 17", href: "tel:+213560654417" },
+  { icon: LuPhone, label: "Téléphone 2", value: "+213 (0)560 75 92 07", href: "tel:+213560759207" },
+  { icon: LuMail, label: "Email", value: "Contact@condoracademy.dz", href: "mailto:Contact@condoracademy.dz" },
+  // { icon: LuMessageCircle, label: "WhatsApp", value: "Écrivez-nous", href: "https://wa.me/213560654417" },
+  { icon: LuMapPin, label: "Adresse", value: "3ème étage, Zone industrielle section 167 îlot 48 GP, BBA, Algérie", href: "https://maps.google.com/?q=Zone+industrielle+Bordj+Bou+Arreridj+Algeria" },
 ];
 
 const SOCIALS = [
-  { label: "LinkedIn", href: "#" },
-  { label: "Instagram", href: "#" },
-  { label: "Facebook", href: "#" },
-  { label: "YouTube", href: "#" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/condoracademy/" },
+  { label: "Instagram", href: "https://www.instagram.com/spa.condor.academy/" },
+  { label: "Facebook", href: "https://www.facebook.com/share/19ADSPTE2c/" },
 ] as const;
 
 export function useHomeViewModel() {
@@ -375,7 +375,6 @@ export function useHomeViewModel() {
   const navLinks = useMemo(() => [
     { label: t.nav.home, href: "/" },
     { label: t.nav.allFormations, href: "/#domains" },
-    { label: t.nav.about, href: "/#about" },
     { label: (t.nav as any).companies || "Le Groupe", href: "/#companies" },
     { label: t.nav.whyUs, href: "/#why" },
     { label: t.nav.contact, href: "/#contact" },
@@ -410,13 +409,7 @@ export function useHomeViewModel() {
   };
 
   const handleDownloadCatalogue = () => {
-    alert(
-      language === "AR"
-        ? "تم بدء تحميل دليل كوندور أكاديمي 2026 (ملف PDF)"
-        : language === "EN"
-        ? "Downloading Condor Academy 2026 Training Catalogue (PDF version)..."
-        : "Téléchargement du Catalogue Condor Academy 2026 lancé (Version PDF)"
-    );
+    window.open(CATALOGUE_PDF_URL, "_blank", "noopener,noreferrer");
   };
 
   const handleContactSubmit = async (e: FormEvent) => {

@@ -1,6 +1,7 @@
 import { Box, Flex, Image, SimpleGrid } from "@chakra-ui/react";
 import { Section, SectionHeader } from "../common/primitives";
 import { useLanguage } from "../../viewmodels/LanguageContext";
+import { SUBSIDIARY_URLS } from "../../config/site";
 import type { TranslationDictionary } from "../../viewmodels/LanguageContext";
 
 import condorLogo from "../../assets/logos/condor.svg";
@@ -55,9 +56,20 @@ export function CompaniesStrip({ t: propT }: CompaniesStripProps) {
         gap={{ base: 4, md: 6 }}
         w="full"
       >
-        {logos.map((logo) => (
+        {logos.map((logo) => {
+          const url = SUBSIDIARY_URLS[logo.alt];
+          return (
           <Box
             key={logo.alt}
+            as={url ? "a" : "div"}
+            {...(url
+              ? {
+                  href: url,
+                  target: "_blank",
+                  rel: "noopener",
+                  title: `${logo.alt} · ${t.extras.visitSite}`,
+                }
+              : {})}
             role="group"
             data-group
             position="relative"
@@ -66,7 +78,7 @@ export function CompaniesStrip({ t: propT }: CompaniesStripProps) {
             display="flex"
             alignItems="center"
             justifyContent="center"
-            cursor="pointer"
+            cursor={url ? "pointer" : "default"}
             transition="all 0.25s ease"
             _hover={{
               "& img": {
@@ -99,7 +111,8 @@ export function CompaniesStrip({ t: propT }: CompaniesStripProps) {
               }}
             />
           </Box>
-        ))}
+          );
+        })}
       </SimpleGrid>
     </Section>
   );

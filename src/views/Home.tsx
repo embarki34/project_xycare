@@ -7,6 +7,9 @@ import {
   DomainsSection,
   HeroSection,
   CompaniesStrip,
+  LocationSection,
+  PlanningSection,
+  PromoBanners,
   WhySection,
 } from "../components/HomeSections";
 import { useHomeViewModel } from "../viewmodels/useHomeViewModel";
@@ -25,6 +28,7 @@ export function Home() {
         setLanguage={vm.setLanguage}
         navLinks={vm.navLinks}
         handleDownloadCatalogue={vm.handleDownloadCatalogue}
+        contactLabel={vm.t.extras.contactCta}
       />
 
       <Box as="main">
@@ -34,7 +38,7 @@ export function Home() {
           t={vm.t}
           dir={vm.dir}
         />
-        <AboutSection pillars={vm.pillars} t={vm.t} />
+        <PromoBanners t={vm.t} />
         <CompaniesStrip  />
         <DomainsSection domains={vm.domains} t={vm.t} dir={vm.dir} />
         <WhySection reasons={vm.reasons} t={vm.t} dir={vm.dir} />
@@ -42,6 +46,7 @@ export function Home() {
           handleDownloadCatalogue={vm.handleDownloadCatalogue}
           t={vm.t}
         />
+        <PlanningSection t={vm.t} />
         <ContactSection
           contactChannels={vm.contactChannels}
           domains={vm.domains}
@@ -53,6 +58,8 @@ export function Home() {
           resetContactForm={vm.resetContactForm}
           t={vm.t}
         />
+        <LocationSection t={vm.t} contactChannels={vm.contactChannels} />
+        <AboutSection pillars={vm.pillars} t={vm.t} />
       </Box>
 
       <Footer
@@ -60,7 +67,10 @@ export function Home() {
         socials={vm.socials}
         contactChannels={vm.contactChannels}
       />
-      <MobileCtaBar onDownload={vm.handleDownloadCatalogue} />
+      <MobileCtaBar
+        onDownload={vm.handleDownloadCatalogue}
+        contactLabel={vm.t.extras.contactCta}
+      />
       <ScrollToTop />
     </Box>
   );
