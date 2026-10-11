@@ -92,6 +92,23 @@ app.post('/api/contact', contactRateLimiter, async (req, res) => {
   }
 });
 
+// Large media served by the API server (kept out of the Vite bundle).
+// res.sendFile handles ETag, Last-Modified and HTTP Range requests, so the
+// video can start before it is fully downloaded and seeking works.
+const MEDIA_CACHE = { maxAge: '7d', immutable: false };
+
+app.get('/media/catalogue.pdf', (req, res) => {
+  res.download(path.join(__dirname, 'catalog.pdf'), 'Catalogue-Condor-Academy-2026.pdf', MEDIA_CACHE, (err) => {
+    if (err && !res.headersSent) res.status(404).end();
+  });
+});
+
+app.get('/media/planning.mp4', (req, res) => {
+  res.sendFile(path.join(__dirname, 'video.mp4'), { ...MEDIA_CACHE, headers: { 'Content-Type': 'video/mp4' } }, (err) => {
+    if (err && !res.headersSent) res.status(404).end();
+  });
+});
+
 // Serve the built frontend
 const distPath = path.join(__dirname, '..', 'dist');
 if (fs.existsSync(distPath)) {

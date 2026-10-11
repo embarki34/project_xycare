@@ -1,13 +1,15 @@
-import { Box, Button, Flex } from "@chakra-ui/react";
-import { LuCalendarCheck, LuDownload } from "react-icons/lu";
+import { Box, Button } from "@chakra-ui/react";
+import { LuDownload } from "react-icons/lu";
 import { Magnetic } from "../animations/Magnetic";
+import type { TranslationDictionary } from "@/viewmodels/LanguageContext";
 
 interface MobileCtaBarProps {
   onDownload: () => void;
   contactLabel: string;
+  t: TranslationDictionary;
 }
 
-export function MobileCtaBar({ onDownload, contactLabel }: MobileCtaBarProps) {
+export function MobileCtaBar({ onDownload,  t }: MobileCtaBarProps) {
   return (
     <Box
       display={{ base: "block", md: "none" }}
@@ -23,40 +25,21 @@ export function MobileCtaBar({ onDownload, contactLabel }: MobileCtaBarProps) {
       borderTopWidth="1px"
       borderColor="ink.200"
     >
-      <Flex gap={2}>
+      <Magnetic>
         <Button
-          id="mobile-contact-btn"
-          asChild
-          flex="1"
+          id="mobile-catalogue-btn"
+          w="full"
           h="48px"
           rounded="xl"
-          variant="outline"
-          borderColor="ink.300"
-          color="ink.800"
+          bg="brand.900"
+          color="white"
           fontWeight="600"
-          fontSize="13px"
+          _hover={{ bg: "brand.800" }}
+          onClick={onDownload}
         >
-          <a href="#contact">
-            <LuCalendarCheck /> {contactLabel}
-          </a>
+          <LuDownload /> {t.common.downloadPdf}
         </Button>
-        <Magnetic>
-          <Button
-            id="mobile-catalogue-btn"
-            aria-label="Catalogue"
-            h="48px"
-            px={4}
-            rounded="xl"
-            bg="brand.900"
-            color="white"
-            fontWeight="600"
-            _hover={{ bg: "brand.800" }}
-            onClick={onDownload}
-          >
-            <LuDownload /> PDF
-          </Button>
-        </Magnetic>
-      </Flex>
+      </Magnetic>
     </Box>
   );
 }

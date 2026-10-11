@@ -1,14 +1,9 @@
 // Single place to swap placeholder content for the real assets.
 
-// TODO: replace with the real catalogue (drop the PDF in /public and use "/catalogue-condor-academy-2026.pdf").
-export const CATALOGUE_PDF_URL =
-  "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
-
-// TODO: replace with the real monthly planning video (MP4 in /public, or a hosted URL).
-export const PLANNING_VIDEO_URL =
-  "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4";
-export const PLANNING_VIDEO_POSTER =
-  "https://placehold.co/1280x720/101F4C/FFFFFF?text=Planning+mensuel";
+// Served by server/index.js from server/catalog.pdf and server/video.mp4.
+export const CATALOGUE_PDF_URL = "/media/catalogue.pdf";
+// "#t=0.1" makes browsers paint the first frame as a poster without a separate image.
+export const PLANNING_VIDEO_URL = "/media/planning.mp4#t=0.1";
 
 export const MAPS_LINK = "https://maps.app.goo.gl/VXLTFjiUzzHUrRU98";
 export const MAPS_EMBED_URL =

@@ -70,6 +70,7 @@ export function Home() {
       <MobileCtaBar
         onDownload={vm.handleDownloadCatalogue}
         contactLabel={vm.t.extras.contactCta}
+        t={vm.t}
       />
       <ScrollToTop />
     </Box>

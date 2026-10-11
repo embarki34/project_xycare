@@ -409,7 +409,13 @@ export function useHomeViewModel() {
   };
 
   const handleDownloadCatalogue = () => {
-    window.open(CATALOGUE_PDF_URL, "_blank", "noopener,noreferrer");
+    // Same-origin link + server Content-Disposition: the browser downloads instead of opening a huge PDF viewer.
+    const a = document.createElement("a");
+    a.href = CATALOGUE_PDF_URL;
+    a.download = "Catalogue-Condor-Academy-2026.pdf";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
   };
 
   const handleContactSubmit = async (e: FormEvent) => {
